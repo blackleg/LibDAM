@@ -17,7 +17,7 @@
 
 package geometria;
 
-import utilidades.Calculadora;
+import utilities.Calculadora;
 
 /**
  *

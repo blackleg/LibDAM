@@ -18,7 +18,7 @@
 package matematicas;
 
 
-import utilidades.Numeros;
+import utilities.Numeros;
 
 
 /**

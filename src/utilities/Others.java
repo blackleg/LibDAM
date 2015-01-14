@@ -15,15 +15,15 @@
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
 
-package utilidades;
+package utilities;
 
-import varios.Pila;
+import others.Pila;
 
 /**
  *
  * @author Hector Espert
  */
-public class Utilidades {
+public class Others {
     
     
     /**

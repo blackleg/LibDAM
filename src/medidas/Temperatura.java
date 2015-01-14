@@ -17,8 +17,8 @@
 
 package medidas;
 
-import utilidades.Numeros;
-import utilidades.Temperaturas;
+import utilities.Numeros;
+import utilities.Temperaturas;
 
 /**
  *

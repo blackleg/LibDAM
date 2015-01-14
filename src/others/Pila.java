@@ -15,11 +15,11 @@
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
 
-package varios;
+package others;
 
 import excepciones.PilaLlenaException;
 import excepciones.PilaVaciaException;
-import utilidades.Matrices;
+import utilities.Matrices;
 
 /**
  *

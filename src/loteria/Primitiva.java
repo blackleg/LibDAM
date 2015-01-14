@@ -15,45 +15,36 @@
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
 
-package geometria;
+package loteria;
 
-import utilities.Calculadora;
+import excepciones.PrimitivaException;
+import java.util.Arrays;
+import utilities.Matrices;
 
 /**
  *
- * @author Hector Espert Pardo
+ * @author alumno
  */
+public class Primitiva {
+    
+    private int[] primitiva;
 
-public class Circulo extends Figura {
-    private double radio;
-
-    public Circulo() {
-    }
-
-    public Circulo(double radio) {
-        this.radio = radio;
-    }
-
-    public void setRadio(double radio) {
-        this.radio = radio;
-    }
-
-    public double getRadio() {
-        return radio;
+    public Primitiva() {
+        primitiva = new int[6];
+        Bombo bombo = new Bombo(50);
+        
+        for (int i = 0; i < primitiva.length; i++) {
+            primitiva[i] = bombo.sacarBola();
+        }
+        
     }
     
-    public double getDiametro() {    
-        return 2 * radio;
-    }
-
-    @Override
-    public double calculaArea() {
-        return Calculadora.areaCirculo(radio);
-    }
-
-    @Override
-    public double calculaPerimetro() {
-        return Calculadora.perimetroCirculo(radio);
+    public int getNumero(int numero) throws PrimitivaException{
+        if (numero > 5 || numero < 0) {
+          throw new PrimitivaException();
+        } else {
+            return primitiva[numero];
+        }  
     }
 
     @Override
@@ -64,30 +55,24 @@ public class Circulo extends Figura {
         if (getClass() != obj.getClass()) {
             return false;
         }
-        final Circulo other = (Circulo) obj;
-        return Double.doubleToLongBits(this.radio) == Double.doubleToLongBits(other.radio);
+        final Primitiva other = (Primitiva) obj;
+        return Arrays.equals(this.primitiva, other.primitiva);
     }
 
     @Override
     public int hashCode() {
-        int hash = 5;
-        hash = 67 * hash + (int) (Double.doubleToLongBits(this.radio) ^ (Double.doubleToLongBits(this.radio) >>> 32));
+        int hash = 7;
+        hash = 23 * hash + Arrays.hashCode(this.primitiva);
         return hash;
     }
 
     @Override
     public String toString() {
-        return String.format("Circulo: x=%d, y=%d, R=%.2f.", super.getCentro().getX(), super.getCentro().getY(), radio);
+        return Matrices.toText(primitiva);
     }
     
     
-
     
     
-    
-
-
+ 
 }
-
-
-

@@ -15,14 +15,14 @@
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
 
-package utilidades;
+package utilities;
 
 
 import geometria.Figura;
 import geometria.Punto;
 import matematicas.Fraccion;
 import matematicas.Matriz;
-import static utilidades.Matrices.getColumnas;
+import static utilities.Matrices.getColumnas;
 
 /**
  *

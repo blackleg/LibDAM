@@ -18,8 +18,8 @@
 
 package matematicas;
 
-import utilidades.Aleatorios;
-import utilidades.Matrices;
+import utilities.Aleatorios;
+import utilities.Matrices;
 
 /**
  *

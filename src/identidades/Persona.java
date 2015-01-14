@@ -19,7 +19,7 @@ package identidades;
 
 import excepciones.StringConNumerosException;
 import java.util.Objects;
-import utilidades.Validador;
+import utilities.Validador;
 
 /**
  * Created by hector on 8/10/14.

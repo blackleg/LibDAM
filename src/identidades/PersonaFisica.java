@@ -7,7 +7,7 @@ import excepciones.EdadException;
 import excepciones.StringConNumerosException;
 import static identidades.PersonaFisica.Sexo.Hombre;
 import java.util.Objects;
-import utilidades.Validador;
+import utilities.Validador;
 
 /**
  * Created by hector on 8/10/14.

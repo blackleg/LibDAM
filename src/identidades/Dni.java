@@ -3,8 +3,8 @@ package identidades;
 import excepciones.DniFormatException;
 import excepciones.DniIncorrectException;
 import java.util.Objects;
-import utilidades.Utilidades;
-import utilidades.Validador;
+import utilities.Others;
+import utilities.Validador;
 
 /*
  * Copyright (C) 2014 Blackleg <blackleg@openmailbox.org>
@@ -74,7 +74,7 @@ public class Dni {
 
 
     private static boolean checkDni(String numeros, String letra ) {
-        return Utilidades.calculaletraDNI(Integer.valueOf(numeros)).equals(letra);
+        return Others.calculaletraDNI(Integer.valueOf(numeros)).equals(letra);
     }
 
 
