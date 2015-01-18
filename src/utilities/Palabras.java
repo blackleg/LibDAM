@@ -95,9 +95,9 @@ public class Palabras {
         return resultado;
     }
 
-    
-    
-    
-    
-    
+    public static boolean checkIfIsEmptyOrNull(String string) {
+        return Objects.checkIfIsNull(string) || string.isEmpty();
+ 
+    }
+
 }
