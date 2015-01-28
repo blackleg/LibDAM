@@ -5,6 +5,7 @@
  */
 package identidades;
 
+import fechas.Fecha;
 /**
  *
  * @author alumno
@@ -14,6 +15,12 @@ public class Empleado extends PersonaFisica {
     private Iden id;
     
     private double salario;
+    
+    private Fecha fechaAlta;
+    
+    private Fecha fechaBaja;
+    
+    private boolean activo;
 
     public Iden getId() {
         return id;
@@ -30,10 +37,15 @@ public class Empleado extends PersonaFisica {
     public void setSalario(double salario) {
         this.salario = salario;
     }
+
+    public Fecha getFechaAlta() {
+        return fechaAlta;
+    }
+
+    public void setFechaAlta(Fecha fecha_alta) {
+        this.fechaAlta = fecha_alta;
+    }
     
     
-    
-    
-    
-    
+
 }
