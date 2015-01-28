@@ -118,10 +118,10 @@ public class PersonaFisica extends Persona {
         }
     }
 
-    @Override
-    public String toString() {
-        return String.format("%s %s %s %s Edad: %d Sexo: %s", super.toString(), primerApellido, segundoApellido, dni.toString(), edad , this.getSexoToString());
-    }
+    //@Override
+    //public String toString() {
+    //    return String.format("%s %s %s %s Edad: %d Sexo: %s", super.toString(), primerApellido, segundoApellido, dni.toString(), edad , this.getSexoToString());
+    //}
 
     @Override
     public int hashCode() {
@@ -155,11 +155,9 @@ public class PersonaFisica extends Persona {
         if (this.edad != other.edad) {
             return false;
         }
-        if (this.sexo != other.sexo) {
-            return false;
-        }
-        return true;
+        return this.sexo == other.sexo;
     }
+   
 
    
     
