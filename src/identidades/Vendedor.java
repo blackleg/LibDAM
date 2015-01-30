@@ -25,5 +25,8 @@ public class Vendedor extends Empleado{
         super.setFechaAlta(fecha_alta);
         super.setSalario(salario);
     }
+
+    
+    
     
 }

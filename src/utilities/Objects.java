@@ -11,7 +11,11 @@ package utilities;
  */
 public class Objects {
     
-    public static boolean checkIfIsNull(Object object) {
+    public static boolean checkIfIsNotNull(Object object) {
+        return object != null;
+    }
+
+    static boolean checkIfIsNull(Object object) {
         return object == null;
     }
     

@@ -45,6 +45,13 @@ public class Empleado extends PersonaFisica {
     public void setFechaAlta(Fecha fecha_alta) {
         this.fechaAlta = fecha_alta;
     }
+
+    @Override
+    public String toString() {
+        return String.format("%s %s %s %s %s %s", id, this.getNombre(), this.getPrimerApellido(), this.getSegundoApellido(), this.fechaAlta, String.valueOf(salario));
+    }
+    
+    
     
     
 

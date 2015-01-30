@@ -40,6 +40,13 @@ public class Iden {
     public static Iden fromInt(int id) {
         return new Iden(id);
     }
+
+    @Override
+    public String toString() {
+        return identificador;
+    }
+    
+    
     
     
     

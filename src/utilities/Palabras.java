@@ -100,4 +100,8 @@ public class Palabras {
  
     }
 
+    public static boolean checkIfIsNotEmptyOrNull(String string) {
+        return !Palabras.checkIfIsEmptyOrNull(string);
+    }
+
 }
