@@ -5,7 +5,7 @@
  */
 package identidades;
 
-import excepciones.StringConNumerosException;
+import excepciones.NameWithNumbersException;
 import fechas.Fecha;
 
 /**
@@ -17,7 +17,7 @@ public class Vendedor extends Empleado{
     public Vendedor() {
     }
     
-    public Vendedor(String nombre, String primerApellido, String segundoApellido, Fecha fecha_alta, double salario) throws StringConNumerosException {
+    public Vendedor(String nombre, String primerApellido, String segundoApellido, Fecha fecha_alta, double salario) throws NameWithNumbersException {
         super();
         super.setNombre(nombre);
         super.setPrimerApellido(primerApellido);

@@ -24,15 +24,15 @@ public class Iden {
         this(String.valueOf(id));
     }
     
-    public void setId(int id) {
+    public void setIdentificador(int id) {
         identificador = String.valueOf(id);
     }
 
-    public String getId() {
+    public String getIdentificador() {
         return identificador;
     }
     
-    public int toInt() {
+    public int idenToInt() {
         return Integer.parseInt(identificador);
     }
     
@@ -43,7 +43,7 @@ public class Iden {
 
     @Override
     public String toString() {
-        return identificador;
+        return String.format("%s Iden: %s", super.toString(), identificador);
     }
     
     

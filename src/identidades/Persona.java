@@ -17,9 +17,8 @@ package identidades;
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
 
-import excepciones.StringConNumerosException;
+
 import java.util.Objects;
-import utilities.Validador;
 
 /**
  * Created by hector on 8/10/14.
@@ -32,29 +31,29 @@ public class Persona {
 
     }
 
-    public Persona (String nombre) throws StringConNumerosException {
-        this.nombre = checkNombre(nombre);
+    public Persona (String nombre) {
+        this.nombre = nombre;
     }
 
     public String getNombre() {
         return nombre;
     }
 
-    public void setNombre(String nombre) throws StringConNumerosException {
-        this.nombre = checkNombre(nombre);
+    public void setNombre(String nombre) {
+        this.nombre = nombre;
     }
 
-    private static String checkNombre(String nombre) throws StringConNumerosException {
-       if (Validador.checkStringNoNumber(nombre)) {
-           return nombre;
-       } else {
-           throw new StringConNumerosException();
-       }
-    }
+//    private static String checkNombre(String nombre) throws NameWithNumbersException {
+//       if (Validador.checkStringNoNumber(nombre)) {
+//           return nombre;
+//       } else {
+//           throw new NameWithNumbersException();
+//       }
+//    }
 
     @Override
     public String toString() {
-        return nombre;
+        return String.format("%s Nombre: %s", super.toString(), nombre);
     }
 
     @Override

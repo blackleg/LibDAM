@@ -26,6 +26,12 @@ public class Validador {
         Matcher mat = pat.matcher(string);
         return mat.matches();
     }
+    
+    public static boolean checkIfStringContainsNumber(String string) {
+        Pattern pat = Pattern.compile(".*\\d.*");
+        Matcher mat = pat.matcher(string);
+        return mat.matches();
+    }
 
 
 

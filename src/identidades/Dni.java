@@ -88,7 +88,7 @@ public class Dni {
 
     @Override
     public String toString() {
-        return String.format("%s%s", numeros, letra);
+        return String.format("DNI: %s%s", numeros, letra);
     }
 
 

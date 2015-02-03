@@ -20,6 +20,6 @@ package excepciones;
  *
  * @author hector
  */
-public class StringConNumerosException extends Exception{
+public class NameWithNumbersException extends Exception{
     
 }

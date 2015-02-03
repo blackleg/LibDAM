@@ -4,9 +4,10 @@ import excepciones.SexoException;
 import excepciones.DniFormatException;
 import excepciones.DniIncorrectException;
 import excepciones.EdadException;
-import excepciones.StringConNumerosException;
+import excepciones.NameWithNumbersException;
 import static identidades.PersonaFisica.Sexo.Hombre;
 import java.util.Objects;
+import utilities.Numeros;
 import utilities.Validador;
 
 /**
@@ -24,18 +25,18 @@ public class PersonaFisica extends Persona {
     private int edad;
 
     private Sexo sexo;
-
-    public PersonaFisica(String nombre, String primerApellido, String segundoApellido, Dni dni, int edad, Sexo sexo) throws StringConNumerosException {
-        super(nombre);
-        this.primerApellido = primerApellido;
-        this.segundoApellido = segundoApellido;
-        this.dni = dni;
-        this.edad = edad;
-        this.sexo = sexo;
-    }
-
+    
     public PersonaFisica() {
-
+        super();
+    }
+    
+    public PersonaFisica(String nombre, String primerApellido, String segundoApellido, Dni dni, int edad, Sexo sexo) throws EdadException, NameWithNumbersException {
+        super(checkName(nombre));
+        this.primerApellido = checkName(primerApellido);
+        this.segundoApellido = checkName(segundoApellido);
+        this.dni = dni;
+        this.edad = checkEdad(edad);
+        this.sexo = sexo;
     }
 
     public void setDni(String dni) throws DniFormatException, DniIncorrectException {
@@ -76,13 +77,12 @@ public class PersonaFisica extends Persona {
         }
     }
 
-    public void setPrimerApellido (String primer_apellido) throws StringConNumerosException {
-        this.primerApellido = checkApellido(primer_apellido);
+    public void setPrimerApellido (String primerApellido) throws NameWithNumbersException {
+        this.primerApellido = checkName(primerApellido);
     }
 
-    public void setSegundoApellido (String segundo_apellido) throws StringConNumerosException {
-
-        this.segundoApellido = checkApellido(segundo_apellido);
+    public void setSegundoApellido (String segundoApellido) throws NameWithNumbersException {
+        this.segundoApellido = checkName(segundoApellido);
     }
 
     public String getPrimerApellido() {
@@ -93,11 +93,11 @@ public class PersonaFisica extends Persona {
         return this.segundoApellido;
     }
 
-    private static String checkApellido(String apellido) throws StringConNumerosException {
-        if (Validador.checkStringNoNumber(apellido)) {
-            return apellido;
+    private static String checkName(String string) throws NameWithNumbersException {
+        if (Validador.checkIfStringContainsNumber(string)) {
+            throw new NameWithNumbersException();
         } else {
-            throw new StringConNumerosException();
+            return string;
         }
     }
 
@@ -110,7 +110,7 @@ public class PersonaFisica extends Persona {
     }
 
     private static int checkEdad(int edad) throws EdadException {
-        if (edad <= 0 || edad >= 150) {
+        if (Numeros.checkIfIsNegative(edad)) {
             throw new EdadException();
         }
            else {
@@ -118,10 +118,10 @@ public class PersonaFisica extends Persona {
         }
     }
 
-    //@Override
-    //public String toString() {
-    //    return String.format("%s %s %s %s Edad: %d Sexo: %s", super.toString(), primerApellido, segundoApellido, dni.toString(), edad , this.getSexoToString());
-    //}
+    @Override
+    public String toString() {
+        return String.format("%s Apellidos: %s %s %s Edad: %d Sexo: %s", super.toString(), primerApellido, segundoApellido, dni, edad , this.getSexoToString());
+    }
 
     @Override
     public int hashCode() {

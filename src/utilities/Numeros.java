@@ -357,6 +357,14 @@ public class Numeros {
         return enteros;
     }
     
+    public static boolean checkIfIsNegative(int number) {
+        return number < 0;
+    }
+    
+    public static boolean checkIfIsNegative(double number) {
+        return number < 0;
+    }
+    
     
     
 }
