@@ -76,6 +76,19 @@ public class PersonaFisica extends Persona {
             throw new SexoException();
         }
     }
+    
+    private static String checkName(String string) throws NameWithNumbersException {
+        if (Validador.checkIfStringContainsNumber(string)) {
+            throw new NameWithNumbersException();
+        } else {
+            return string;
+        }
+    }
+
+    @Override
+    public void setNombre(String nombre) throws NameWithNumbersException {
+        super.setNombre(checkName(nombre)); 
+    }
 
     public void setPrimerApellido (String primerApellido) throws NameWithNumbersException {
         this.primerApellido = checkName(primerApellido);
@@ -91,14 +104,6 @@ public class PersonaFisica extends Persona {
 
     public String getSegundoApellido() {
         return this.segundoApellido;
-    }
-
-    private static String checkName(String string) throws NameWithNumbersException {
-        if (Validador.checkIfStringContainsNumber(string)) {
-            throw new NameWithNumbersException();
-        } else {
-            return string;
-        }
     }
 
     public int getEdad(){

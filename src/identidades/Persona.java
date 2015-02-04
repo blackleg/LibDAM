@@ -18,7 +18,9 @@ package identidades;
  */
 
 
+import excepciones.NameWithNumbersException;
 import java.util.Objects;
+import utilities.Validador;
 
 /**
  * Created by hector on 8/10/14.
@@ -39,17 +41,9 @@ public class Persona {
         return nombre;
     }
 
-    public void setNombre(String nombre) {
+    public void setNombre(String nombre) throws NameWithNumbersException {
         this.nombre = nombre;
     }
-
-//    private static String checkNombre(String nombre) throws NameWithNumbersException {
-//       if (Validador.checkStringNoNumber(nombre)) {
-//           return nombre;
-//       } else {
-//           throw new NameWithNumbersException();
-//       }
-//    }
 
     @Override
     public String toString() {

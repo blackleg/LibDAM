@@ -26,6 +26,14 @@ public class Vendedor extends Empleado{
         super.setSalario(salario);
     }
 
+    @Override
+    public String toString() {
+        return String.format("ID: %s %s %s %s Salario: %.2f", getId().getIdentificador(), getNombre(), getPrimerApellido(), getSegundoApellido(), getSalario());
+    }
+    
+    
+    
+
     
     
     
