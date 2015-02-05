@@ -32,7 +32,7 @@ public class Iden {
         return identificador;
     }
     
-    public int idenToInt() {
+    public int toInt() throws NumberFormatException {
         return Integer.parseInt(identificador);
     }
     
