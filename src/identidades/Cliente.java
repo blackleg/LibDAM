@@ -9,6 +9,18 @@ package identidades;
  *
  * @author alumno
  */
-public class Cliente {
+public class Cliente extends PersonaFisica {
+    
+    private Iden iden;
+
+    public Iden getIden() {
+        return iden;
+    }
+
+    public void setIden(Iden iden) {
+        this.iden = iden;
+    }
+    
+    
     
 }
