@@ -5,7 +5,13 @@
  */
 package pruebas;
 
-import identidades.PersonaFisica;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.Date;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import utilities.Dates;
+
 
 
 
@@ -20,8 +26,28 @@ public class Pruebas {
      */
     public static void main(String[] args) {
 
-            PersonaFisica persona = new PersonaFisica();
-            System.out.println(persona);
+            String fecha = "18011988";
+            
+            
+        Date fechas = null;    
+        try {
+            fechas = Dates.fromStringWithFormat("ddMMyyyy", fecha);
+        } catch (ParseException ex) {
+            Logger.getLogger(Pruebas.class.getName()).log(Level.SEVERE, null, ex);
+        }
+            
+            System.out.println(fechas.toString());
+        
+            SimpleDateFormat formatoDelTexto = new SimpleDateFormat("ddMMyyyy");
+            String strFecha = "18011988";
+            Date fecha2 = null;
+            try {
+                fecha2 = formatoDelTexto.parse(strFecha);
+            } catch (ParseException ex) {
+                ex.printStackTrace();
+            }
+
+            System.out.println(fecha2.toString());
         
     }
     

@@ -6,7 +6,7 @@
 package identidades;
 
 import excepciones.NameWithNumbersException;
-import fechas.Fecha;
+import java.util.Date;
 
 /**
  *
@@ -17,7 +17,7 @@ public class Vendedor extends Empleado{
     public Vendedor() {
     }
     
-    public Vendedor(String nombre, String primerApellido, String segundoApellido, Fecha fecha_alta, double salario) throws NameWithNumbersException {
+    public Vendedor(String nombre, String primerApellido, String segundoApellido, Date fecha_alta, double salario) throws NameWithNumbersException {
         super();
         super.setNombre(nombre);
         super.setPrimerApellido(primerApellido);
@@ -28,7 +28,7 @@ public class Vendedor extends Empleado{
 
     @Override
     public String toString() {
-        return String.format("ID: %s %s %s %s Salario: %.2f", getId().getIdentificador(), getNombre(), getPrimerApellido(), getSegundoApellido(), getSalario());
+        return String.format("ID: %s %s %s %s Fecha Alta: %s Salario: %.2f", getId().getIdentificador(), getNombre(), getPrimerApellido(), getSegundoApellido(), getFechaAlta(), getSalario());
     }
     
     

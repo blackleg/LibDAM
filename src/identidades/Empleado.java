@@ -5,7 +5,8 @@
  */
 package identidades;
 
-import fechas.Fecha;
+import utilities.Dates;
+import java.util.Date;
 /**
  *
  * @author alumno
@@ -16,9 +17,9 @@ public class Empleado extends PersonaFisica {
     
     private double salario;
     
-    private Fecha fechaAlta;
+    private Date fechaAlta;
     
-    private Fecha fechaBaja;
+    private Date fechaBaja;
     
     private boolean activo;
 
@@ -38,11 +39,11 @@ public class Empleado extends PersonaFisica {
         this.salario = salario;
     }
 
-    public Fecha getFechaAlta() {
+    public Date getFechaAlta() {
         return fechaAlta;
     }
 
-    public void setFechaAlta(Fecha fecha_alta) {
+    public void setFechaAlta(Date fecha_alta) {
         this.fechaAlta = fecha_alta;
     }
 

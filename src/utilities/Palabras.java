@@ -17,6 +17,9 @@
 
 package utilities;
 
+import java.text.SimpleDateFormat;
+import java.util.Date;
+
 
 /**
  *
@@ -102,6 +105,12 @@ public class Palabras {
 
     public static boolean checkIfIsNotEmptyOrNull(String string) {
         return !Palabras.checkIfIsEmptyOrNull(string);
+    }
+    
+    
+    public static String fromDateWithFormat(String format, Date date) {
+        SimpleDateFormat formatter = new SimpleDateFormat(format);
+        return formatter.format(date);
     }
 
 }
