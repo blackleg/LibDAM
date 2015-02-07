@@ -44,11 +44,11 @@ public class Dni {
 
     }
 
-    public String getDni() {
+    public String toStringFormat() {
 
         return numeros + letra;
     }
-
+    
 
     private static String checkDni(String dni) throws DniFormatException, DniIncorrectException {
         dni = checkString(dni);
