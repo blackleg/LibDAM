@@ -36,7 +36,6 @@ public class Dni {
         numeros = getNumerosDni(dni);
     }
 
-
     public void setDni(String dni) throws DniFormatException, DniIncorrectException {
         dni = checkDni(dni);
         letra = getLetraDni(dni);
