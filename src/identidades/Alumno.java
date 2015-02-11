@@ -23,6 +23,9 @@ package identidades;
  */
 public class Alumno extends PersonaFisica{
 
+    @Override
+    public String toString() {
+        return String.format("DNI: %s Nombre: %s Apellidos: %s %s Edad: %d", getDni().toStringFormat(), getNombre(), getPrimerApellido(), getSegundoApellido(), getEdad());
+    }
 
-  
 }
