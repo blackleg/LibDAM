@@ -5,6 +5,8 @@
  */
 package org.blackleg.libdam.identities;
 
+import java.util.Objects;
+
 /**
  *
  * @author alumno
@@ -45,6 +47,30 @@ public class Iden {
     public String toString() {
         return String.format("%s Iden: %s", super.toString(), identificador);
     }
+
+    @Override
+    public int hashCode() {
+        int hash = 7;
+        hash = 97 * hash + Objects.hashCode(this.identificador);
+        return hash;
+    }
+
+    @Override
+    public boolean equals(Object obj) {
+        if (obj == null) {
+            return false;
+        }
+        if (getClass() != obj.getClass()) {
+            return false;
+        }
+        final Iden other = (Iden) obj;
+        if (!Objects.equals(this.identificador, other.identificador)) {
+            return false;
+        }
+        return true;
+    }
+    
+    
     
     
     
