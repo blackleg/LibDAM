@@ -45,7 +45,7 @@ public class Iden {
 
     @Override
     public String toString() {
-        return String.format("%s Iden: %s", super.toString(), identificador);
+        return String.format("%s %s", super.toString(), identificador);
     }
 
     @Override
@@ -64,10 +64,7 @@ public class Iden {
             return false;
         }
         final Iden other = (Iden) obj;
-        if (!Objects.equals(this.identificador, other.identificador)) {
-            return false;
-        }
-        return true;
+        return Objects.equals(this.identificador, other.identificador);
     }
     
     
