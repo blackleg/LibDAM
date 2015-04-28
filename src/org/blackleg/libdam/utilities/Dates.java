@@ -46,4 +46,19 @@ public class Dates {
         return months / 12;
     }
     
+    /**
+     * Transforma un Date en un String con el valor Long del Date.
+     * @param fecha
+     * @return 
+     */
+    public static String transformDateToLongString(Date fecha) {
+        if (fecha == null) {
+            return null;
+	} else {
+            return String.valueOf(fecha.getTime());
+	}
+    }
+    
+    
+    
 }
