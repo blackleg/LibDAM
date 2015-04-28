@@ -1,13 +1,5 @@
-package org.blackleg.libdam.identities;
-
-import org.blackleg.libdam.exceptions.DniFormatException;
-import org.blackleg.libdam.exceptions.DniIncorrectException;
-import java.util.Objects;
-import org.blackleg.libdam.utilities.Others;
-import org.blackleg.libdam.utilities.Validador;
-
 /*
- * Copyright (C) 2014 Blackleg <blackleg@openmailbox.org>
+ * Copyright (C) 2015 Blackleg
  *
  * This program is free software: you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -22,6 +14,14 @@ import org.blackleg.libdam.utilities.Validador;
  * You should have received a copy of the GNU General Public License
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
+
+package org.blackleg.libdam.identities;
+
+import org.blackleg.libdam.exceptions.DniFormatException;
+import org.blackleg.libdam.exceptions.DniIncorrectException;
+import java.util.Objects;
+import org.blackleg.libdam.utilities.Others;
+import org.blackleg.libdam.utilities.Validador;
 
 
 public class Dni {
