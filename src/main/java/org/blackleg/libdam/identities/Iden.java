@@ -78,12 +78,4 @@ public class Iden {
         final Iden other = (Iden) obj;
         return Objects.equals(this.identificador, other.identificador);
     }
-    
-    
-    
-    
-    
-    
-    
-    
 }
