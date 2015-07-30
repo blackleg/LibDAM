@@ -16,6 +16,7 @@
  */
 
 package org.blackleg.libdam.console;
+
 import java.util.InputMismatchException;
 import java.util.Locale;
 import java.util.Scanner;
@@ -27,12 +28,11 @@ import java.util.Scanner;
 public class Console {
     
      /**
-     *  Devuelve un entero leido del teclado. message es el mensaje que le
-     * muestras al usuario.
+     *  Devuelve un entero leido del teclado.
      * @param message
      * @return
      */
-    public static int getEntero(String message) {
+    public static int getInteger(String message) {
         int entero = -1;   
         boolean isinteger;
         Scanner scan = new Scanner(System.in, "iso-8859-1");
@@ -45,7 +45,6 @@ public class Console {
                 isinteger = true;
             }catch( InputMismatchException e ){
                 System.out.println("No has introducido un numero entero.");
-                //System.out.println(e);
                 scan.next();
                 isinteger = false;                    
             }

@@ -27,17 +27,20 @@ import org.blackleg.libdam.utilities.Matrices;
  */
 public class Pila {
     
-    private int[] pila;
+    private final int[] pila;
     
     private int cima;
-
-    public Pila() {
-        pila = new int[100];
-        cima = 0;   
+    
+    private final int tamaño;
+    
+    public Pila(int tamaño) {
+        this.tamaño = tamaño;
+        pila = new int[this.tamaño];
+        cima = 0;
     }
     
     public void mete(int numero) throws Exception {
-        if (cima > 99) {
+        if (cima > tamaño - 1) {
             throw new PilaLlenaException();
         } else {
             pila[cima] = numero;
@@ -46,7 +49,7 @@ public class Pila {
     }
     
     public boolean estaLlena(){
-        return cima > 99;
+        return cima > tamaño - 1;
     }
     
     public int saca() throws Exception {
@@ -65,6 +68,14 @@ public class Pila {
     @Override
     public String toString() {
         return String.format("I %d, P %s", cima, Matrices.toText(pila));
+    }
+    
+    public int getLength() {
+        return tamaño;
+    }
+
+    public int getCima() {
+        return cima;
     }
     
     
