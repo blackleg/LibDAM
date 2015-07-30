@@ -72,5 +72,20 @@ public class Dates {
     }
     
     
+    public static String toStringWithFormat(String format, Date date) {
+        SimpleDateFormat formatter = new SimpleDateFormat(format);
+        return formatter.format(date);
+    }
+    
+    /**
+     * Convierte segundos a minutos
+     * @param segundos
+     * @return
+     */
+    public static double segundosToMinutos(double segundos) {
+        return segundos/60;
+    }
+    
+    
     
 }

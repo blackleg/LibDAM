@@ -19,6 +19,7 @@ package org.blackleg.libdam.identities;
 
 import org.blackleg.libdam.exceptions.NameWithNumbersException;
 import java.util.Date;
+import org.blackleg.libdam.exceptions.StringEmptyException;
 
 /**
  *
@@ -29,7 +30,7 @@ public class Vendedor extends Empleado{
     public Vendedor() {
     }
     
-    public Vendedor(String nombre, String primerApellido, String segundoApellido, Date fecha_alta, double salario) throws NameWithNumbersException {
+    public Vendedor(String nombre, String primerApellido, String segundoApellido, Date fecha_alta, double salario) throws NameWithNumbersException, StringEmptyException {
         super();
         super.setNombre(nombre);
         super.setPrimerApellido(primerApellido);

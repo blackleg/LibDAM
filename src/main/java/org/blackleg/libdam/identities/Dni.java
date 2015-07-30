@@ -20,8 +20,8 @@ package org.blackleg.libdam.identities;
 import org.blackleg.libdam.exceptions.DniFormatException;
 import org.blackleg.libdam.exceptions.DniIncorrectException;
 import java.util.Objects;
-import org.blackleg.libdam.utilities.Others;
-import org.blackleg.libdam.utilities.Validador;
+import org.blackleg.libdam.exceptions.StringEmptyException;
+import org.blackleg.libdam.utilities.Validator;
 
 
 public class Dni {
@@ -30,13 +30,13 @@ public class Dni {
 
     private String numeros;
 
-    public Dni(String dni) throws DniFormatException, DniIncorrectException {
+    public Dni(String dni) throws DniFormatException, DniIncorrectException, StringEmptyException {
         dni = checkDni(dni);
         letra = getLetraDni(dni);
         numeros = getNumerosDni(dni);
     }
 
-    public void setDni(String dni) throws DniFormatException, DniIncorrectException {
+    public void setDni(String dni) throws DniFormatException, DniIncorrectException, StringEmptyException {
         dni = checkDni(dni);
         letra = getLetraDni(dni);
         numeros = getNumerosDni(dni);
@@ -49,7 +49,7 @@ public class Dni {
     }
     
 
-    private static String checkDni(String dni) throws DniFormatException, DniIncorrectException {
+    private static String checkDni(String dni) throws DniFormatException, DniIncorrectException, StringEmptyException {
         dni = checkString(dni);
 
         String numeros = getNumerosDni(dni);
@@ -73,12 +73,12 @@ public class Dni {
 
 
     private static boolean checkDni(String numeros, String letra ) {
-        return Others.calculaletraDNI(Integer.valueOf(numeros)).equals(letra);
+        return calculateLetter(Integer.valueOf(numeros)).equals(letra);
     }
 
 
-    private static String checkString(String string) throws DniFormatException {
-        if (Validador.checkStringIsDni(string)) {
+    private static String checkString(String string) throws DniFormatException, StringEmptyException {
+        if (Validator.checkStringIsDni(string)) {
             return string;
         } else {
             throw new DniFormatException();
@@ -112,6 +112,17 @@ public class Dni {
             return false;
         }
         return Objects.equals(this.numeros, other.numeros);
+    }
+    
+    /**
+     * Calcula letra dni
+     * @param dniNumber
+     * @return 
+     */
+    public static String calculateLetter(int dniNumber) {
+        String letras = "TRWAGMYFPDXBNJZSQVHLCKEU";
+        int indice = dniNumber % 23;
+        return letras.substring(indice, indice + 1);
     }
 
 }

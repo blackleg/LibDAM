@@ -24,8 +24,11 @@ import org.blackleg.libdam.exceptions.EdadException;
 import org.blackleg.libdam.exceptions.NameWithNumbersException;
 import static org.blackleg.libdam.identities.PersonaFisica.Sexo.Hombre;
 import java.util.Objects;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import org.blackleg.libdam.exceptions.StringEmptyException;
 import org.blackleg.libdam.utilities.Numeros;
-import org.blackleg.libdam.utilities.Validador;
+import org.blackleg.libdam.utilities.Validator;
 
 /**
  * Created by hector on 8/10/14.
@@ -47,7 +50,7 @@ public class PersonaFisica extends Persona {
         super();
     }
     
-    public PersonaFisica(String nombre, String primerApellido, String segundoApellido, Dni dni, int edad, Sexo sexo) throws EdadException, NameWithNumbersException {
+    public PersonaFisica(String nombre, String primerApellido, String segundoApellido, Dni dni, int edad, Sexo sexo) throws EdadException, NameWithNumbersException, StringEmptyException {
         super(checkName(nombre));
         this.primerApellido = checkName(primerApellido);
         this.segundoApellido = checkName(segundoApellido);
@@ -56,7 +59,7 @@ public class PersonaFisica extends Persona {
         this.sexo = sexo;
     }
 
-    public void setDni(String dni) throws DniFormatException, DniIncorrectException {
+    public void setDni(String dni) throws DniFormatException, DniIncorrectException, StringEmptyException {
         this.dni = new Dni(dni);
     }
 
@@ -94,8 +97,8 @@ public class PersonaFisica extends Persona {
         }
     }
     
-    private static String checkName(String string) throws NameWithNumbersException {
-        if (Validador.checkIfStringContainsNumber(string)) {
+    private static String checkName(String string) throws NameWithNumbersException, StringEmptyException {
+        if (Validator.checkIfStringContainsNumber(string)) {
             throw new NameWithNumbersException();
         } else {
             return string;
@@ -103,15 +106,19 @@ public class PersonaFisica extends Persona {
     }
 
     @Override
-    public void setNombre(String nombre) throws NameWithNumbersException {
-        super.setNombre(checkName(nombre)); 
+    public void setNombre(String nombre) {
+        try {
+            super.setNombre(checkName(nombre));
+        } catch (NameWithNumbersException | StringEmptyException ex) {
+            Logger.getLogger(PersonaFisica.class.getName()).log(Level.SEVERE, null, ex);
+        }
     }
 
-    public void setPrimerApellido (String primerApellido) throws NameWithNumbersException {
+    public void setPrimerApellido (String primerApellido) throws NameWithNumbersException, StringEmptyException {
         this.primerApellido = checkName(primerApellido);
     }
 
-    public void setSegundoApellido (String segundoApellido) throws NameWithNumbersException {
+    public void setSegundoApellido (String segundoApellido) throws NameWithNumbersException, StringEmptyException {
         this.segundoApellido = checkName(segundoApellido);
     }
 

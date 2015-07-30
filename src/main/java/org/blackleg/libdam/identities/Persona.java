@@ -18,7 +18,6 @@ package org.blackleg.libdam.identities;
  */
 
 
-import org.blackleg.libdam.exceptions.NameWithNumbersException;
 import java.util.Objects;
 
 /**
@@ -40,7 +39,7 @@ public class Persona {
         return nombre;
     }
 
-    public void setNombre(String nombre) throws NameWithNumbersException {
+    public void setNombre(String nombre) {
         this.nombre = nombre;
     }
 

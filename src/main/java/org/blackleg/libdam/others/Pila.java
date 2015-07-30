@@ -19,6 +19,7 @@ package org.blackleg.libdam.others;
 
 import org.blackleg.libdam.exceptions.PilaLlenaException;
 import org.blackleg.libdam.exceptions.PilaVaciaException;
+import org.blackleg.libdam.utilities.Aleatorios;
 import org.blackleg.libdam.utilities.Matrices;
 
 /**
@@ -76,6 +77,47 @@ public class Pila {
 
     public int getCima() {
         return cima;
+    }
+    
+    
+    
+    
+    /**
+     * Vacia un objeto tipo Pila
+     * @param pila
+     * @throws java.lang.Exception
+     */
+    public static void vaciar(Pila pila) throws Exception {
+        while (!pila.estaVacia()) {
+                pila.saca();
+
+        }
+    }
+    
+    /**
+     * Llena una pila con numeros aleatorios
+     * @param pila
+     * @param cantidad
+     * @throws java.lang.Exception
+     */
+    public static void llenar(Pila pila, int cantidad) throws Exception {
+        for (int i = 0; i < cantidad; i++) {
+                pila.mete(Aleatorios.entre(100, 999));
+
+        }
+    }
+    
+    /**
+     * Pasa valores de una pila a otra
+     * @param pila_primera
+     * @param pila_segunda
+     * @throws java.lang.Exception
+     */
+    public static void pasarEntrePilas(Pila pila_primera, Pila pila_segunda) throws Exception {
+        while (!pila_primera.estaVacia()) {
+                pila_segunda.mete(pila_primera.saca());
+            
+        }
     }
     
     

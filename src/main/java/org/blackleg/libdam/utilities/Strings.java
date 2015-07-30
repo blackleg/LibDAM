@@ -17,15 +17,12 @@
 
 package org.blackleg.libdam.utilities;
 
-import java.text.SimpleDateFormat;
-import java.util.Date;
-
 
 /**
  *
  * @author Hector Espert
  */
-public class Palabras {
+public class Strings {
 
     
     private static final String vocales = "aeiouAEIOU";
@@ -55,7 +52,7 @@ public class Palabras {
      * @return
      */
     public static int[][] stringToMatrizMulti (String s_matriz) { 
-        s_matriz = Palabras.quitarCambioLinea(s_matriz);
+        s_matriz = Strings.quitarCambioLinea(s_matriz);
         String[] filas = s_matriz.split("\n");
         int n_filas = filas.length;       
         String[] columnas = filas[0].split(" ");
@@ -104,13 +101,17 @@ public class Palabras {
     }
 
     public static boolean checkIfIsNotEmptyOrNull(String string) {
-        return !Palabras.checkIfIsEmptyOrNull(string);
+        return !Strings.checkIfIsEmptyOrNull(string);
     }
     
-    
-    public static String fromDateWithFormat(String format, Date date) {
-        SimpleDateFormat formatter = new SimpleDateFormat(format);
-        return formatter.format(date);
+     /**
+     * [ES]Invierte una cadena.
+     * @param string
+     * @return
+     */
+    public static String reverse (String string) {
+        StringBuilder sb = new StringBuilder(string);
+        String cadReves = sb.reverse().toString();
+        return cadReves;
     }
-
 }

@@ -19,6 +19,7 @@ package org.blackleg.libdam.identities;
 
 import org.blackleg.libdam.exceptions.EdadException;
 import org.blackleg.libdam.exceptions.NameWithNumbersException;
+import org.blackleg.libdam.exceptions.StringEmptyException;
 
 /**
  * Created by hector on 8/10/14.
@@ -31,7 +32,7 @@ public class Futbolista extends PersonaFisica {
         super();
     }
 
-    public Futbolista(String nombre, String primerApellido, String segundoApellido, Dni dni, int edad, Sexo sexo, String nivel) throws NameWithNumbersException, EdadException {
+    public Futbolista(String nombre, String primerApellido, String segundoApellido, Dni dni, int edad, Sexo sexo, String nivel) throws NameWithNumbersException, EdadException, StringEmptyException {
         super(nombre, primerApellido, segundoApellido, dni, edad, sexo);
         this.nivel = nivel;
     }

@@ -17,28 +17,11 @@
 
 package org.blackleg.libdam.utilities;
 
-import org.blackleg.libdam.others.Pila;
-
 /**
  *
  * @author Hector Espert
  */
 public class Others {
-    
-    
-    /**
-     * Calcula la letra de un numero de DNI español.
-     * @param numero
-     * @return
-     */
-    public static String calculaletraDNI (int numero ) {
-        
-        String letras = "TRWAGMYFPDXBNJZSQVHLCKEU";
-        int indice = numero % 23;
-        
-        return letras.substring(indice, indice + 1);
-
-    }
 
     /**
      * Calcula el cambio a devolver
@@ -63,22 +46,7 @@ public class Others {
         return cantidad == 0;
     }
     
-    /**
-     * Invierte una cadena.
-     * @param cadena
-     * @return
-     */
-    public static String invertirCadena (String cadena) {
-        
-        StringBuilder sb = new StringBuilder(cadena);
-        
-        String cadReves = sb.reverse().toString();
-        
-        return cadReves;
-        
-    }
-    
-    
+     
     
     /**
      * Indica si una palabra es palindroma.
@@ -86,9 +54,7 @@ public class Others {
      * @return
      */
     public static boolean esPalindromo (String cadena) {
-        
-        String cadReves = invertirCadena(cadena);
-   
+        String cadReves = Strings.reverse(cadena);
         return cadena.equalsIgnoreCase(cadReves); 
     }
     
@@ -151,53 +117,5 @@ public class Others {
 
        return true; 
     }
-
-    /**
-     * Vacia un objeto tipo Pila
-     * @param pila
-     * @throws java.lang.Exception
-     */
-    public static void vaciarPila(Pila pila) throws Exception {
-        while (!pila.estaVacia()) {
-                pila.saca();
-
-        }
-    }
-
-    /**
-     * Llena una pila con numeros aleatorios
-     * @param pila
-     * @param cantidad
-     * @throws java.lang.Exception
-     */
-    public static void llenarPila(Pila pila, int cantidad) throws Exception {
-        for (int i = 0; i < cantidad; i++) {
-                pila.mete(Aleatorios.entre(100, 999));
-
-        }
-    }
-
-    /**
-     * Pasa valores de una pila a otra
-     * @param pila_primera
-     * @param pila_segunda
-     * @throws java.lang.Exception
-     */
-    public static void pasarEntrePilas(Pila pila_primera, Pila pila_segunda) throws Exception {
-        while (!pila_primera.estaVacia()) {
-                pila_segunda.mete(pila_primera.saca());
-            
-        }
-    }
-    
-    /**
-     * Convierte segundos a minutos
-     * @param segundos
-     * @return
-     */
-    public static double segundosToMinutos(double segundos) {
-        return segundos/60;
-    }
-    
     
 }
